@@ -35,7 +35,8 @@
             <!-- Các mục sẽ làm tiếp -->
             <li><a href="${pageContext.request.contextPath}/MainController?action=property_list">Properties (CRUD)</a></li>
             <li><a href="${pageContext.request.contextPath}/MainController?action=listing_list">Listings (CRUD + Status)</a></li>
-            <li><a href="${pageContext.request.contextPath}/MainController?action=alerts_list">Alerts</a></li>
+            <li><a href="${pageContext.request.contextPath}/MainController?action=alert_list">Alerts</a></li>
+            
 
             <li><a href="${pageContext.request.contextPath}/MainController?action=logout">Logout</a></li>
         </ul>

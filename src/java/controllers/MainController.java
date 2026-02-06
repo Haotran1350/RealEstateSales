@@ -26,6 +26,7 @@ public class MainController extends HttpServlet {
     private static final String INTERACTION_CONTROLLER = "/InteractionController";
     private static final String PROPERTY_CONTROLLER = "/PropertyController";
     private static final String LISTING_CONTROLLER = "/ListingController";
+    private static final String ALERT_CONTROLLER = "/AlertController";
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -70,13 +71,21 @@ public class MainController extends HttpServlet {
                 break;
 
             case "listing_list":
-                
+
             case "listing_create":
-                
+
             case "listing_update_status":
-                
+
             case "listing_delete":
-                url = LISTING_CONTROLLER; 
+                url = LISTING_CONTROLLER;
+                break;
+
+            case "alert_list":
+                
+            case "alert_ack":
+                
+            case "alert_done":
+                url = ALERT_CONTROLLER;
                 break;
 
             default:

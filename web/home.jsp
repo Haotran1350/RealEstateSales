@@ -40,9 +40,11 @@
                
                 <li><a href="${pageContext.request.contextPath}/MainController?action=property_list">Properties</a></li>
                 <li><a href="${pageContext.request.contextPath}/MainController?action=listing_list">Listings</a></li>
+                <li><a href="${pageContext.request.contextPath}/MainController?action=alert_list">Alerts</a></li>
                 <li>
                     <a href="${pageContext.request.contextPath}/MainController?action=logout">Logout</a>
                 </li>
+                
             </ul>
         </c:otherwise>
     </c:choose>

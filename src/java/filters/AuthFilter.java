@@ -81,18 +81,22 @@ public class AuthFilter implements Filter {
     }
 
     private boolean isPublic(String path, HttpServletRequest req) {
-        // Cho phép file tĩnh
+        // static
         if (path.startsWith("/assets/") || path.startsWith("/css/") || path.startsWith("/js/") || path.startsWith("/images/")) {
             return true;
         }
 
-        // Cho phép trang login
-        if (path.equals("/login.jsp")) return true;
+        // login page
+        if (path.equals("/login.jsp")) {
+            return true;
+        }
 
-        // Cho phép trực tiếp vào LoginController / LogoutController
-        if (path.equals("/LoginController") || path.equals("/LogoutController")) return true;
+        // allow direct login/logout servlets (nếu có dùng)
+        if (path.equals("/LoginController") || path.equals("/LogoutController")) {
+            return true;
+        }
 
-        // Cho phép MainController gọi action login/logout (không cần session)
+        // allow action login/logout qua MainController khi chưa login
         if (path.equals("/MainController")) {
             String action = req.getParameter("action");
             return "login".equals(action) || "logout".equals(action);
