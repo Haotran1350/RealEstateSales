@@ -4,6 +4,7 @@
  */
 package models;
 
+import java.math.BigDecimal;
 import java.sql.Timestamp;
 
 /**
@@ -11,23 +12,26 @@ import java.sql.Timestamp;
  * @author Hao
  */
 public class Valuation {
-    private long valuationId;
-    private Integer propertyId;     // nullable (property_id XOR listing_id)
-    private Integer listingId;      // nullable
-    private Double pLow;
-    private Double pMed;
-    private Double pHigh;
-    private Double confidence;      // 0..1
+
+    private Integer valId;
+    private Integer propertyId; // luôn NULL khi định giá theo listing
+    private Integer listingId;
+    private BigDecimal pLow;
+    private BigDecimal pMed;
+    private BigDecimal pHigh;
+    private BigDecimal confidence; // DECIMAL(5,4) -> BigDecimal
     private String explanationText;
-    private String modelVersion;    // FK -> model_registry.model_version
+    private String modelVersion; // có thể null
     private Timestamp createdAt;
 
-    public Valuation() {}
+    public Valuation() {
+    }
 
-    public Valuation(long valuationId, Integer propertyId, Integer listingId,
-                     Double pLow, Double pMed, Double pHigh, Double confidence,
-                     String explanationText, String modelVersion, Timestamp createdAt) {
-        this.valuationId = valuationId;
+    public Valuation(Integer valId, Integer propertyId, Integer listingId,
+            BigDecimal pLow, BigDecimal pMed, BigDecimal pHigh,
+            BigDecimal confidence, String explanationText, String modelVersion,
+            Timestamp createdAt) {
+        this.valId = valId;
         this.propertyId = propertyId;
         this.listingId = listingId;
         this.pLow = pLow;
@@ -39,33 +43,83 @@ public class Valuation {
         this.createdAt = createdAt;
     }
 
-    public long getValuationId() { return valuationId; }
-    public void setValuationId(long valuationId) { this.valuationId = valuationId; }
+    public Integer getValId() {
+        return valId;
+    }
 
-    public Integer getPropertyId() { return propertyId; }
-    public void setPropertyId(Integer propertyId) { this.propertyId = propertyId; }
+    public void setValId(Integer valId) {
+        this.valId = valId;
+    }
 
-    public Integer getListingId() { return listingId; }
-    public void setListingId(Integer listingId) { this.listingId = listingId; }
+    public Integer getPropertyId() {
+        return propertyId;
+    }
 
-    public Double getpLow() { return pLow; }
-    public void setpLow(Double pLow) { this.pLow = pLow; }
+    public void setPropertyId(Integer propertyId) {
+        this.propertyId = propertyId;
+    }
 
-    public Double getpMed() { return pMed; }
-    public void setpMed(Double pMed) { this.pMed = pMed; }
+    public Integer getListingId() {
+        return listingId;
+    }
 
-    public Double getpHigh() { return pHigh; }
-    public void setpHigh(Double pHigh) { this.pHigh = pHigh; }
+    public void setListingId(Integer listingId) {
+        this.listingId = listingId;
+    }
 
-    public Double getConfidence() { return confidence; }
-    public void setConfidence(Double confidence) { this.confidence = confidence; }
+    public BigDecimal getPLow() {
+        return pLow;
+    }
 
-    public String getExplanationText() { return explanationText; }
-    public void setExplanationText(String explanationText) { this.explanationText = explanationText; }
+    public void setPLow(BigDecimal pLow) {
+        this.pLow = pLow;
+    }
 
-    public String getModelVersion() { return modelVersion; }
-    public void setModelVersion(String modelVersion) { this.modelVersion = modelVersion; }
+    public BigDecimal getPMed() {
+        return pMed;
+    }
 
-    public Timestamp getCreatedAt() { return createdAt; }
-    public void setCreatedAt(Timestamp createdAt) { this.createdAt = createdAt; }
+    public void setPMed(BigDecimal pMed) {
+        this.pMed = pMed;
+    }
+
+    public BigDecimal getPHigh() {
+        return pHigh;
+    }
+
+    public void setPHigh(BigDecimal pHigh) {
+        this.pHigh = pHigh;
+    }
+
+    public BigDecimal getConfidence() {
+        return confidence;
+    }
+
+    public void setConfidence(BigDecimal confidence) {
+        this.confidence = confidence;
+    }
+
+    public String getExplanationText() {
+        return explanationText;
+    }
+
+    public void setExplanationText(String explanationText) {
+        this.explanationText = explanationText;
+    }
+
+    public String getModelVersion() {
+        return modelVersion;
+    }
+
+    public void setModelVersion(String modelVersion) {
+        this.modelVersion = modelVersion;
+    }
+
+    public Timestamp getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(Timestamp createdAt) {
+        this.createdAt = createdAt;
+    }
 }

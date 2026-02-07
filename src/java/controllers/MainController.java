@@ -27,6 +27,9 @@ public class MainController extends HttpServlet {
     private static final String PROPERTY_CONTROLLER = "/PropertyController";
     private static final String LISTING_CONTROLLER = "/ListingController";
     private static final String ALERT_CONTROLLER = "/AlertController";
+    private static final String QUOTE_CONTROLLER = "/QuoteController";
+    private static final String IMAGE_CONTROLLER = "/ImageController";
+    private static final String VALUATION_CONTROLLER = "/ValuationController";
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -49,43 +52,47 @@ public class MainController extends HttpServlet {
                 break;
 
             case "lead_list":
-
             case "lead_create":
                 url = LEAD_CONTROLLER;
                 break;
 
             case "interaction_list":
-
             case "interaction_create":
                 url = INTERACTION_CONTROLLER;
                 break;
 
             case "property_list":
-
             case "property_create":
-
             case "property_update":
-
             case "property_delete":
                 url = PROPERTY_CONTROLLER;
                 break;
 
             case "listing_list":
-
             case "listing_create":
-
             case "listing_update_status":
-
             case "listing_delete":
                 url = LISTING_CONTROLLER;
                 break;
 
             case "alert_list":
-                
             case "alert_ack":
-                
             case "alert_done":
                 url = ALERT_CONTROLLER;
+                break;
+
+            case "quote_pdf":
+                url = QUOTE_CONTROLLER;
+                break;
+
+            case "image_list":
+            case "image_upload":
+            case "image_delete":
+                url = IMAGE_CONTROLLER;
+                break;
+
+            case "valuation_generate":
+                url = VALUATION_CONTROLLER;
                 break;
 
             default:
