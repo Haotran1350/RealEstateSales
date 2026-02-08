@@ -95,6 +95,11 @@
                                     View Interactions
                                 </a>
                             </td>
+                            <td>
+                                <a href="${pageContext.request.contextPath}/MainController?action=leadscore_list&leadId=${l.leadId}">
+                                    Scores / NBA
+                                </a>
+                            </td>
                         </tr>
                     </c:forEach>
                 </tbody>

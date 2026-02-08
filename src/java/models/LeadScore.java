@@ -4,6 +4,7 @@
  */
 package models;
 
+import java.math.BigDecimal;
 import java.sql.Timestamp;
 
 /**
@@ -11,18 +12,18 @@ import java.sql.Timestamp;
  * @author Hao
  */
 public class LeadScore {
-     private long scoreId;
+    private int scoreId;
     private int leadId;
-    private int horizonDays;        // 7/14/30
-    private Double probability;     // 0..1
-    private String bucket;          // HOT/WARM/COLD
+    private int horizonDays; // 7/14/30
+    private BigDecimal probability; // DECIMAL(5,4)
+    private String bucket; // HOT/WARM/COLD
     private String explanationText;
     private String modelVersion;
     private Timestamp createdAt;
 
     public LeadScore() {}
 
-    public LeadScore(long scoreId, int leadId, int horizonDays, Double probability,
+    public LeadScore(int scoreId, int leadId, int horizonDays, BigDecimal probability,
                      String bucket, String explanationText, String modelVersion, Timestamp createdAt) {
         this.scoreId = scoreId;
         this.leadId = leadId;
@@ -34,27 +35,70 @@ public class LeadScore {
         this.createdAt = createdAt;
     }
 
-    public long getScoreId() { return scoreId; }
-    public void setScoreId(long scoreId) { this.scoreId = scoreId; }
+    public int getScoreId() {
+        return scoreId;
+    }
 
-    public int getLeadId() { return leadId; }
-    public void setLeadId(int leadId) { this.leadId = leadId; }
+    public void setScoreId(int scoreId) {
+        this.scoreId = scoreId;
+    }
 
-    public int getHorizonDays() { return horizonDays; }
-    public void setHorizonDays(int horizonDays) { this.horizonDays = horizonDays; }
+    public int getLeadId() {
+        return leadId;
+    }
 
-    public Double getProbability() { return probability; }
-    public void setProbability(Double probability) { this.probability = probability; }
+    public void setLeadId(int leadId) {
+        this.leadId = leadId;
+    }
 
-    public String getBucket() { return bucket; }
-    public void setBucket(String bucket) { this.bucket = bucket; }
+    public int getHorizonDays() {
+        return horizonDays;
+    }
 
-    public String getExplanationText() { return explanationText; }
-    public void setExplanationText(String explanationText) { this.explanationText = explanationText; }
+    public void setHorizonDays(int horizonDays) {
+        this.horizonDays = horizonDays;
+    }
 
-    public String getModelVersion() { return modelVersion; }
-    public void setModelVersion(String modelVersion) { this.modelVersion = modelVersion; }
+    public BigDecimal getProbability() {
+        return probability;
+    }
 
-    public Timestamp getCreatedAt() { return createdAt; }
-    public void setCreatedAt(Timestamp createdAt) { this.createdAt = createdAt; }
+    public void setProbability(BigDecimal probability) {
+        this.probability = probability;
+    }
+
+    public String getBucket() {
+        return bucket;
+    }
+
+    public void setBucket(String bucket) {
+        this.bucket = bucket;
+    }
+
+    public String getExplanationText() {
+        return explanationText;
+    }
+
+    public void setExplanationText(String explanationText) {
+        this.explanationText = explanationText;
+    }
+
+    public String getModelVersion() {
+        return modelVersion;
+    }
+
+    public void setModelVersion(String modelVersion) {
+        this.modelVersion = modelVersion;
+    }
+
+    public Timestamp getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(Timestamp createdAt) {
+        this.createdAt = createdAt;
+    }
+
+
+    
 }

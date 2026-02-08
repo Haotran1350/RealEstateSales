@@ -103,4 +103,16 @@ public class AlertDAO extends DBUtils {
         x.setAgentName(rs.getString("agent_name"));
         return x;
     }
+
+    public boolean createNBA(int agentId, int leadId, String severity, String message) throws Exception {
+        String sql = "INSERT INTO dbo.alerts(agent_id, lead_id, listing_id, type, severity, message, status) "
+                + "VALUES(?, ?, NULL, 'NEXT_BEST_ACTION', ?, ?, 'OPEN')";
+        try ( Connection cn = DBUtils.getConnection();  PreparedStatement ps = cn.prepareStatement(sql)) {
+            ps.setInt(1, agentId);
+            ps.setInt(2, leadId);
+            ps.setString(3, severity);
+            ps.setString(4, message);
+            return ps.executeUpdate() > 0;
+        }
+    }
 }

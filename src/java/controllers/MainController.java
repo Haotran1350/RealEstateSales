@@ -30,6 +30,7 @@ public class MainController extends HttpServlet {
     private static final String QUOTE_CONTROLLER = "/QuoteController";
     private static final String IMAGE_CONTROLLER = "/ImageController";
     private static final String VALUATION_CONTROLLER = "/ValuationController";
+    private static final String LEAD_SCORE_CONTROLLER = "/LeadScoreController";
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -93,6 +94,12 @@ public class MainController extends HttpServlet {
 
             case "valuation_generate":
                 url = VALUATION_CONTROLLER;
+                break;
+
+            case "leadscore_list":
+            case "leadscore_generate":
+            case "nba_generate":
+                url = LEAD_SCORE_CONTROLLER;
                 break;
 
             default:
